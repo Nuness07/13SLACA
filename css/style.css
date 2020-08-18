@@ -35,6 +35,7 @@ button {
 
 .btn {
     background-color: #ED7839;
+    border-radius: 4px;
 }
 
 .btn:hover {
@@ -61,11 +62,10 @@ button {
     background: linear-gradient(180deg, #FFB354 0%, #EE7A3A 100%);
     color: #FFF;
     text-transform: uppercase;
-    height: 68px;
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 35px;
+    line-height: 68px;
 }
 
 .sidebar .navSide ul li {
@@ -91,6 +91,15 @@ button {
 }
 
 /* CONTEUDO */
+
+/* MENU RESPONSIVO */
+.btnMenu{
+    display: none;
+}
+
+.mobileMenu{
+    display: none;
+}
 
 /* Header */
 
@@ -199,7 +208,6 @@ button {
     height: 31px;
     margin-right: 5px;
     display: flex;
-    border-radius: 4px;
     align-items: center;
     justify-content: center;
     color: #fff;
@@ -210,19 +218,10 @@ button {
     font-weight: 500;
 }
 
-.btnFav {
+.btnFav, .btnDoi {
     width: 43px;
     height: 31px;
     margin-right: 5px;
-    border-radius: 4px;
-    align-items: center;
-    justify-content: center;
-}
-
-.btnDoi {
-    width: 43px;
-    height: 31px;
-    border-radius: 4px;
     align-items: center;
     justify-content: center;
 }
@@ -373,7 +372,6 @@ button {
     justify-content: center;
     color: #FFF;
     background: linear-gradient(180deg, #FEB254 0%, #F0813D 100%);
-    border-radius: 4px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
     position: relative;
     top: -18px;
@@ -446,6 +444,25 @@ button {
     background: linear-gradient(180deg, #FEB154 0%, #F1833E 100%);
     border-radius: 0px 0px 4px 0px;
     color: #FFF;
+    padding-bottom: 2px;
+}
+
+/* TÓPICO ENVIADO - discussões */
+
+.topic-send{
+    margin-top: 20px;
+}
+
+.topic-send >  p:first-child {
+    color: #ED7839;
+    font-size: 1.125em;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.topic-send .p-after{
+    text-align: center;
 }
 
 /* TÓPICOS - discussões */
@@ -461,6 +478,7 @@ button {
     padding: 20px;
     margin-bottom: 17px;
     cursor: pointer;
+    margin: 20px;
 }
 
 .topic-item:hover {
@@ -499,9 +517,8 @@ button {
 
 .topic-options .btnLike {
     width: 27px;
-    height: 19px;
-    padding-top: 4px;
-    border-radius: 2px;
+    height: 20px;
+    padding: 4px;
     margin-right: 22px;
 }
 
@@ -513,16 +530,20 @@ button {
 
 /* TÓPICO EXPANDIDO - discussões */
 
-.topic-expanded {
+.topic-expanded-1, .topic-expanded-2 {
     border: 1px solid #e7e7e7;
     border-radius: 4px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12);
-    padding: 20px;
-    margin-bottom: 17px;
+    padding: 20px 0;
+    margin: 20px;
     cursor: pointer;
 }
 
-.topic-expanded .topic-options {
+.topic{
+    margin: 0 20px;
+}
+
+.topic-expanded-1 .topic-options, .topic-expanded-2 .topic-options {
     margin-bottom: 10px;
 }
 
@@ -588,28 +609,84 @@ button {
 
 }
 @media only screen and (max-width: 768px) {
-    .sidebar {
+
+    /* Menu Responsivo */
+    .btnMenu{
+        width: 100%;
+        padding: 10px;
+        background-color: #ED7839;
+        display: flex;
+        align-items: center;
+    }
+
+    .btnMenu h2{
+        font-size: 2em;
+        text-transform: uppercase;
+        color: #FFF;
+    }
+
+    .btnMenu img{
+        width: 40px;
+        height: 40px;
+        margin-right: 60px;
+    }
+
+    .mobileMenu{
+        display: block;
+        background-color: #FEB154;
+        width: 100%;
+        padding-top: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 200ms linear;
+    }
+
+    .menu-open{
+        transform: translateX(0);
+    }
+
+    .btnMenu-close{
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+    }
+
+    .navMobile ul > li a{
+        display: block;
+        padding: 10px;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid #ED7839;
+    }
+
+    .navMobile ul > li a:hover{
+        background-color: #EE7A3A;
+    }
+
+    .selecionado{
+        color: #FFF !important;
+        background-color: #EE7A3A;
+        border: none;
+    }
+
+    .sidebar{
         display: none;
     }
     .content {
         margin-left: 0px;
     }
 
-    .content header{
-        max-width: 100%;
-    }
-
     .content header .header-title {
-        margin: 0 auto;
+        margin: 0 5px;
         font-size: 0.8em;
-        width: 280px;
     }
     
 
     .content header .user {
-        margin: 15px auto;
+        margin: 15px 5px;
         font-size: 0.7em;
-        width: 250px;
     }
 
     .btnLanguage {
